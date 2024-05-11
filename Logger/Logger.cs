@@ -22,6 +22,7 @@ public sealed class Logger : IDisposable
     }
     // for lightweight messages
     public void Log(string content) => _wr.Write(Encoder.GetBytes(content));
+    public void LogN(string content) => Log(content+"\n");
 
     // for heavy messages
     public ValueTask LogAsync(string content) => _wr.WriteAsync(Encoder.GetBytes(content));
